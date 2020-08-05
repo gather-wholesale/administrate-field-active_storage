@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'administrate/field/base'
 require 'rails'
 
@@ -70,7 +72,13 @@ module Administrate
       end
 
       def attachments
-        data.attachments if attached?
+        if attached?
+          if many?
+            data.attachments
+          else
+            data.attachments.first
+          end
+        end
       end
     end
   end
