@@ -76,7 +76,7 @@ module Administrate
           if many?
             data.attachments
           else
-            data.attachments.first.present? ? [data.attachments.first] : nil
+            data.attachments.first.present? ? [data.attachments.first] : []
           end
         end
       end
